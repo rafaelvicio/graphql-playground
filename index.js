@@ -1,15 +1,17 @@
+import "./src/env";
+
 import express from "express";
 import { ApolloServer, mergeSchemas } from "apollo-server-express";
 
 // Schemas
 
-import jobsSchema from "./api/schema/jobs";
+import jobsSchema from "./src/schema/jobs";
 
 // Resolvers
 
 const app = express();
 
-const PORT = 4000;
+const port = process.env.PORT || 4000;
 
 const schemas = [jobsSchema];
 
@@ -24,7 +26,7 @@ const SERVER = new ApolloServer({
 
 SERVER.applyMiddleware({ app });
 
-app.listen(PORT, () =>
+app.listen(port, () =>
   console.log(
     `🚀 GraphQL playground is running at http://localhost:4000/graphql`
   )
