@@ -15,10 +15,12 @@ const defaultData = [
 
 export default {
   Query: {
-    allJobs: () => {
+    allJobs: (data, args, { loggedUser, controllers: { Jobs } }) => {
+      Jobs.create();
       return defaultData;
     },
-    job: (root, { id }) => {
+    job: (data, { id }, { loggedUser, controllers: { Jobs } }) => {
+      Jobs.create();
       return defaultData.filter(character => {
         return (character.id = id);
       })[0];

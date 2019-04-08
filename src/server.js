@@ -4,6 +4,8 @@ import helmet from "helmet";
 import cors from "cors";
 import schema from "./schema";
 
+import JobsController from "./controllers/JobsControllers";
+
 class Server {
   constructor() {
     this.express = express();
@@ -14,10 +16,20 @@ class Server {
 
   async createServerApollo() {
     const apolloServer = new ApolloServer({
+      context: async ({ req }) => this.createContext(req),
       schema
     });
 
     apolloServer.applyMiddleware({ app: this.express, path: "/" });
+  }
+
+  async createContext(req) {
+    return {
+      loggedUser: true,
+      controllers: {
+        Jobs: new JobsController()
+      }
+    };
   }
 }
 
