@@ -1,7 +1,32 @@
+import Job from "../models/Job";
+
 export default class Jobs {
   constructor() {}
 
-  async create() {
-    console.log("Chamando controler Jobs! Create");
+  async all() {
+    try {
+      const jobs = await Job.find();
+      return jobs;
+    } catch (error) {
+      return [];
+    }
+  }
+
+  async create(input) {
+    try {
+      const job = await Job.create(input);
+      return job;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  async findById({ id }) {
+    try {
+      const job = await Job.findById(id);
+      return job;
+    } catch (error) {
+      return null;
+    }
   }
 }
