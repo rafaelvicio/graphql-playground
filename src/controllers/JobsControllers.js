@@ -21,9 +21,9 @@ export default class Jobs {
     }
   }
 
-  async findById({ id }) {
+  async findById({ _id }) {
     try {
-      const job = await Job.findById(id);
+      const job = await Job.findById(_id);
       return job;
     } catch (error) {
       return null;

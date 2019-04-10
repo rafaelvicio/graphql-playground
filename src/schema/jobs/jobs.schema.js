@@ -5,15 +5,24 @@ export default gql`
     _id: String
     title: String
     description: String
+    salary: Number
+    remote: Boolean
+    company: Company
+    active: Boolean
+    createdAt: String
   }
 
   input createJobInput {
     title: String
     description: String
+    salary: Number
+    remote: Boolean
+    company: String
+    active: Boolean
   }
 
   input findJobInput {
-    id: String
+    _id: String
   }
 
   type Mutation {

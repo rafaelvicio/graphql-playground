@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-const JobSchema = new mongoose.Schema({
-  title: {
+const CompanySchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true
   },
@@ -9,15 +9,13 @@ const JobSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  salary: {
-    type: Number
+  city: {
+    type: String,
+    required: true
   },
-  remote: {
-    type: Boolean
-  },
-  company: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Company"
+  site: {
+    type: String,
+    required: true
   },
   active: {
     type: Boolean,
@@ -29,4 +27,4 @@ const JobSchema = new mongoose.Schema({
   }
 });
 
-export default mongoose.model("jobs", JobSchema);
+export default mongoose.model("companys", CompanySchema);
