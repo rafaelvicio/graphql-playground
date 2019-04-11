@@ -6,6 +6,7 @@ import { connectMongo } from "./database/mongoose";
 import schema from "./schema";
 
 import JobsController from "./controllers/JobsControllers";
+import CompanysController from "./controllers/CompanysControllers";
 
 class Server {
   constructor() {
@@ -33,7 +34,8 @@ class Server {
     return {
       loggedUser: true,
       controllers: {
-        Jobs: new JobsController()
+        Jobs: new JobsController(),
+        Companys: new CompanysController()
       }
     };
   }

@@ -2,12 +2,12 @@ import { gql } from "apollo-server-express";
 
 export default gql`
   type Job {
-    _id: String
+    _id: ID!
     title: String
     description: String
-    salary: Number
+    salary: Float
     remote: Boolean
-    company: Company
+    company: Company!
     active: Boolean
     createdAt: String
   }
@@ -15,14 +15,14 @@ export default gql`
   input createJobInput {
     title: String
     description: String
-    salary: Number
+    salary: Float
     remote: Boolean
     company: String
     active: Boolean
   }
 
   input findJobInput {
-    _id: String
+    _id: ID!
   }
 
   type Mutation {

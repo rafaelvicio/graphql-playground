@@ -2,7 +2,7 @@ import { gql } from "apollo-server-express";
 
 export default gql`
   type Company {
-    _id: String
+    _id: ID!
     name: String
     description: String
     city: String
@@ -19,7 +19,7 @@ export default gql`
   }
 
   input findCompanyInput {
-    _id: String
+    _id: ID!
   }
 
   type Mutation {
